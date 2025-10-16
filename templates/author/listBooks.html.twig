@@ -1,0 +1,24 @@
+<table border="1">
+<tr>
+<td>ID</td>
+<td>TITLE</td>
+<td>Publication Date</td>
+<td>Enabled</td>
+<td>Author</td>
+<tr>
+
+<tr>
+{% for book in books %}
+<td>{{book.id}}</td>
+<td>{{book.title}}</td>
+<td>{{book.publicationDate ? book.publicationDate|date('Y-m-d') : ''}}</td>
+<td>{{book.enabled ? 'Yes' : 'No'}}</td>
+<td>{{book.author.username}}</td>
+
+
+</tr>
+{% else %}
+<tr><td colspan="4">No Books found</td></tr>
+{% endfor %}
+
+</table>
