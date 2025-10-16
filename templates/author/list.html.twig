@@ -2,23 +2,20 @@
 <tr>
 <td>ID</td>
 <td>Name</td>
-<td>Pic</td>
 <td>Email</td>
-<td>Number of books</td>
 <tr>
 
 <tr>
-{% for author in authors%}
+{% for author in authors %}
 <td>{{author.id}}</td>
 <td>{{author.username}}</td>
-<td> <img src="{{asset(author.picture)}}" width="25%" /></td>
 <td>{{author.email}}</td>
-<td>{{author.nb_books}}</td>
-<td><a href="{{path('showauth',{'name': author.username})}}">Show details</td>
+<td><a href="{{ path('showauth', {'name': author.username}) }}">Show details</a></td>
+<td><a href="{{ path('deleteAuth', {'id': author.id}) }}">Show details</a></td>
 
-<tr>
+</tr>
 {% else %}
-No Authors found
+<tr><td colspan="4">No Authors found</td></tr>
 {% endfor %}
 
 </table>
